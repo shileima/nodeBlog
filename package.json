@@ -1,0 +1,22 @@
+{
+  "name": "blog2",
+  "version": "1.0.0",
+  "description": "my nodejs + Mongodb blog",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookies": "^0.7.1",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.12",
+    "npm": "^5.4.2",
+    "path": "^0.12.7",
+    "swig": "^1.4.2",
+    "ueditor": "^1.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "loading",
+  "license": "ISC"
+}
