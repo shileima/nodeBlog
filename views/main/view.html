@@ -9,9 +9,7 @@
             阅读：<span class="colInfo">{{content.views}}</span> -
             评论：<span class="colInfo">{{content.comments.length}}</span>
         </p>
-        <dfn>
-            {{content.content}}
-        </dfn>
+        <div id="content">{{content.content|raw}}</div>
     </div>
 
     <div class="listBox message">

@@ -14,7 +14,7 @@ module.exports = new mongoose.Schema({
     title: String,
     addTime: {
         type: Date,
-        default: new Date()
+        default: Date.now
     },
     views: {
         type: Number,

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Loading的博客</title>
+    <title>Node.js吧 - Node.js技术交流</title>
     <link href="/public/css/main.css" rel="stylesheet" type="text/css">
     <link href="/public/fontAwesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="/public/js/jquery-1.12.4.min.js"></script>
@@ -13,7 +13,7 @@
 
 <header>
     <div class="backimg"><img src="/public/images/IMG_0293.JPG"></div>
-    <div class="logo"><span></span><img src="/public/images/00002637.png"></div>
+    <div class="logo"><span></span><img src="/public/images/logo.png"></div>
 </header>
 
 <nav>
@@ -25,11 +25,19 @@
         {%endif%}
 
         {%for cate in categories%}
+          {% if categories %}
             {%if category == cate.id%}
-                <a href="/?category={{cate.id}}" class="focus">{{cate.name}}</a>
+            <a href="/category/{{cate.id}}" class="focus">{{cate.name}}</a>
             {%else%}
-                <a href="/?category={{cate.id}}">{{cate.name}}</a>
+            <a href="/category/{{cate.id}}">{{cate.name}}</a>
             {%endif%}
+          {% else %}
+            <!--{%if category == cate.id%}-->
+            <!--<a href="/?category={{cate.id}}" class="focus">{{cate.name}}</a>-->
+            <!--{%else%}-->
+            <!--<a href="/?category={{cate.id}}">{{cate.name}}</a>-->
+            <!--{%endif%}-->
+          {% endif %}
         {%endfor%}
     </div>
 </nav>
@@ -82,14 +90,17 @@
 
         <div class="rightBox">
             <div class="title"><span>社区</span></div>
-            <p><a href="http://www.miaov.com" target="_blank" class="colDanger">妙味课堂</a></p>
-            <p><a href="http://bbs.miaov.com" target="_blank" class="colDanger">妙味茶馆</a></p>
-        </div>
+            <p><a href="http://www.atyanjiao.com" target="_blank" class="colDanger">atyanjiao</a></p>
+            <p><a href="http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html" target="_blank" class="colDanger">React Technology Stack</a></p>
+            <p><a href="https://github.com/shileima" target="_blank" class="colDanger">gitHub</a></p>
+            <p><a href="http://www.ruanyifeng.com/blog/2017/08/koa.html" target="_blank" class="colDanger">Koa 框架教程</a></p>
+            <p><a href="https://www.liaoxuefeng.com/" target="_blank" class="colDanger">廖雪峰网站 </a></p>   
+     </div>
     </div>
 
 
 </main>
 
-<div class="copyright textCenter">Copyright © miaov.com 版权所有 | 京ICP备08102442号</div>
+<div class="copyright textCenter">Copyright © Loading 版权所有 | 京ICP备14006974号</div>
 </body>
 </html>

@@ -14,7 +14,46 @@ router.get('/',function(req,res,next){
         limit: 4,
         pages: 0,
         count:0,
-        category: req.query.category || '',
+        category: '',
+        categories: [],
+        contents:[],
+        userInfo: req.userInfo
+    }
+
+    var where = {};
+
+    Category.find().sort({_id:-1}).then(function(categories){
+        data.categories = categories
+        return Content.where(where).count();
+    }).then(function(count){
+        data.count = count;
+
+        //计算总页数
+        data.pages = Math.ceil(data.count / data.limit);
+        //取值不能超过pages
+        data.page = Math.min( data.page, data.pages );
+        //取值不能小于1
+        data.page = Math.max( data.page, 1 );
+
+        var skip = (data.page - 1) * data.limit;
+
+        return Content.where(where).find().limit(data.limit).skip(skip).populate(['category', 'user']).sort({
+            addTime: -1
+        })
+    }).then(function(contents){
+        data.contents = contents;
+        res.render('main/index', data)
+    })
+})
+
+router.get('/category/:category',function(req,res,next){
+
+    var data = {
+        page: Number(req.query.page || 1),
+        limit: 4,
+        pages: 0,
+        count:0,
+        category: req.params.category,
         categories: [],
         contents:[],
         userInfo: req.userInfo
@@ -50,8 +89,8 @@ router.get('/',function(req,res,next){
 })
 
 //文章详情页
-router.get('/view',function(req,res){
-    var contentId = req.query.contentid || '';
+router.get('/view/:id',function(req,res){
+    var contentId = req.params.id;
     var categories = [];
     Category.find().sort({_id:-1}).then(function(category){
         categories = category;

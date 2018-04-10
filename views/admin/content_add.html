@@ -32,7 +32,13 @@
 
     <div class="form-group">
         <label for="content">内容：</label>
+<!--
         <textarea name="content" id="content" class="form-control" rows="10" placeholder="请输入内容"></textarea>
+-->
+        <script id="editor" name="content" type="text/html" style="width:100%;height:500px;"></script>
+        <script>
+        var ue = UE.getEditor('editor')
+        </script>
     </div>
 
     <button type="submit" class="btn btn-default">提交</button>
