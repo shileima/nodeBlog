@@ -194,7 +194,7 @@ main .mainLeft .listBox {
   text-align: left;
   margin-bottom: 30px;
 }
-main .mainLeft .listBox  {
+main .mainLeft .listBox img {
   max-width: 100%;
 }
 main .listBoxMore {
