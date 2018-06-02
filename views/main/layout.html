@@ -2,7 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Node.js吧 - Node.js技术交流</title>
+    <title>{%block title%}
+        {% if curCategory %}{{ curCategory }} - Node.js技术交流{% else %}Node.js 吧 - Node.js技术交流{% endif %}
+    {%endblock%}</title>
     <link href="/public/css/main.css" rel="stylesheet" type="text/css">
     <link href="/public/fontAwesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <script src="/public/js/jquery-1.12.4.min.js"></script>

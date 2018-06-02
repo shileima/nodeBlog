@@ -55,6 +55,7 @@ router.get('/category/:category',function(req,res,next){
         count:0,
         category: req.params.category,
         categories: [],
+        curCategory: '',
         contents:[],
         userInfo: req.userInfo
     }
@@ -63,6 +64,12 @@ router.get('/category/:category',function(req,res,next){
     if(data.category){
         where.category = data.category
     }
+    //找到当前页面的当前分类
+    Category.findOne({
+        _id:where.category
+    }).then(function(curCategory){
+        data.curCategory = curCategory.name
+    });
 
     Category.find().sort({_id:-1}).then(function(categories){
         data.categories = categories
