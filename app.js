@@ -111,7 +111,7 @@ app.use('/admin',require('./routers/admin'))
 
 // 加载数据库模块
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://loading:yytt861124@115.159.152.167:27017/blog', function(err){
+mongoose.connect('mongodb://loading:y@@t8...4@yourIP:27017/blog', function(err){
         if(err){
             console.log('数据库连接失败')
         } else {
